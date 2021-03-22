@@ -51,7 +51,7 @@ void attack(struct perso *persoptrA,  struct perso *persoptrB) {
 
 void main()
 {
-	struct perso ultramarine ,*persoptr, perso1 ,necron ,*persoptr2, perso2;
+	struct perso ultramarine ,*persoptr,necron ,*persoptr2;
 
 			strcpy(ultramarine.nom,"Ultramarine");
 			ultramarine.pv = 2;
@@ -67,33 +67,35 @@ void main()
 
 			int n;
 
-		  while (n != 1 || n != 2)
+		  while(n != 1 && n != 2)
 			{
 
 				printf("Ultramarine, taper 1, Nécron taper 2\n");
 
 				scanf("%d", &n);
 
-				if(n == 1)
-				{
+        printf("\n%d\n", n);
+      }
 
-					persoptr = &perso1;
-					persoptr2 = &perso2;
-
-				}
-
-				else if(n == 2)
-				{
-					persoptr = &perso2;
-					persoptr2 = &perso1;
-				}
-
-		 }
-
-			while (persoptr->pv == 0 || persoptr2->pv == 0)
+			if(n == 1)
 			{
+
+					persoptr = &ultramarine;
+					persoptr2 = &necron;
+
+			}
+
+			else if(n == 2)
+			{
+					persoptr = &necron;
+					persoptr2 = &ultramarine;
+			}
+
+
+		while(persoptr->pv != 0 && persoptr2->pv != 0)
+		{
 				attack(persoptr, persoptr2);
 			  attack(persoptr2, persoptr);
-			}
+		}
 
 }
