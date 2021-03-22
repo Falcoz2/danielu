@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 struct perso
 {
@@ -10,8 +11,7 @@ struct perso
 	int tir;
 };
 
-void attack(struct perso persoptrA,  struct perso persoptrB) {
-
+void attack(struct perso *persoptrA,  struct perso *persoptrB) {
 
 	time_t t;
 
@@ -53,13 +53,13 @@ void main()
 {
 	struct perso ultramarine ,*persoptr, perso1 ,necron ,*persoptr2, perso2;
 
-			ultramarine.nom = "Ultramarine";
+			strcpy(ultramarine.nom,"Ultramarine");
 			ultramarine.pv = 2;
 			ultramarine.touche = 3;
 			ultramarine.blessure = 3;
 		  ultramarine.tir = 1;
 
-		  necron.nom = "Necron";
+		  strcpy(necron.nom,"Necron");
 			necron.pv = 1;
 			necron.touche = 4;
 			necron.blessure = 2;
@@ -70,7 +70,7 @@ void main()
 		  while (n != 1 || n != 2)
 			{
 
-				printf("Ultramarine, taper 1, Nécron taper 2");
+				printf("Ultramarine, taper 1, Nécron taper 2\n");
 
 				scanf("%d", &n);
 
