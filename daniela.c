@@ -10,7 +10,10 @@ struct perso
 	int blessure;
 	int tir;
 };
-
+void rp(char*source, char*destination){
+int l = 0;
+ destination[l] = source [0], l++;
+}
 void attack(struct perso *persoptrA,  struct perso *persoptrB) {
 
 	time_t t;
@@ -65,7 +68,9 @@ void main()
 			necron.blessure = 2;
 			necron.tir = 2;
 
-			int n;
+			int n, deplacement;
+
+      char strtab[] = "M---N", strtab1[] = "N---M", Necro ='N', Ultraman ='M';
 
 		  while(n != 1 && n != 2)
 			{
@@ -91,11 +96,41 @@ void main()
 					persoptr2 = &ultramarine;
 			}
 
+      while(persoptr->pv != 0 && persoptr2->pv != 0)
+      {
+        printf("Voulez vous vous déplacez/o = oui, n = non\n");
+        deplacement = getchar();
+        if(persoptr = &ultramarine)
+        {
+            switch(deplacement)
+            {
+            case 'o' :
+            case 'O' :
+            printf("%s\n", strtab);
+            rp(Ultraman, strtab);
+            break;
+            }
+        }
+          else if(persoptr = &necron)
+          {
 
-		while(persoptr->pv != 0 && persoptr2->pv != 0)
-		{
-				attack(persoptr, persoptr2);
-			  attack(persoptr2, persoptr);
-		}
+              switch(deplacement)
+              {
+              case 'o' :
+              case 'O' :
+              printf("%s\n", strtab1);
+              rp(Necro, strtab1);
+              break;
+              }
+          }
+
+        else{
+
+          attack(persoptr, persoptr2);
+	  attack(persoptr2, persoptr);
+
+           }
+
+        }
 
 }
